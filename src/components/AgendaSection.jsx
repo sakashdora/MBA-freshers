@@ -9,42 +9,42 @@ import { playMicroTap } from '../utils/audio';
 const TIMELINE_EVENTS = [
   {
     id: 1,
-    time: "11:40 AM – 12:30 PM",
-    duration: "50 MIN",
-    title: "WELCOME & BATCH ICEBREAKERS",
-    badge: "11:40 AM WELCOME",
-    subtitle: "Warm Introductions & Stage Games",
-    desc: "The celebration begins as seniors and juniors unite. Meet your mentors, enjoy lively stage icebreakers, and begin forging bonds that will define your MBA years.",
+    time: "12:00 PM – 01:00 PM",
+    duration: "60 MIN",
+    title: "ACADEMIC WELCOME & INDUCTION ICEBREAKERS",
+    badge: "12:00 PM REPORTING",
+    subtitle: "Dignitary Seating & Batch Introductions",
+    desc: "The celebration commences at 12:00 PM sharp. Welcoming our esteemed faculty, mentors, and the incoming MBA batch with cordial introductory interactions and lively stage icebreakers.",
     icon: Users
   },
   {
     id: 2,
-    time: "12:30 PM – 01:30 PM",
+    time: "01:00 PM – 02:00 PM",
     duration: "60 MIN",
-    title: "GRAND FELLOWSHIP LUNCH",
-    badge: "12:30 PM LUNCH",
-    subtitle: "Festive Fellowship Meal",
-    desc: "A delicious fellowship lunch to relax, share stories, and create fond memories together with batchmates, seniors, and faculty.",
+    title: "GRAND FELLOWSHIP LUNCHEON",
+    badge: "01:00 PM BANQUET",
+    subtitle: "Faculty, Senior & Fresher Fellowship Meal",
+    desc: "An elaborate multi-course fellowship banquet hosted in honour of our new scholars, bringing together faculty members, seniors, and juniors to dine, converse, and connect.",
     icon: Utensils
   },
   {
     id: 3,
-    time: "01:30 PM – 04:15 PM",
-    duration: "2 HR 45 MIN",
-    title: "STAGE SHOWCASE & FRESHER TITLES ’26",
-    badge: "01:30 PM SHOWCASE",
-    subtitle: "Performances & Title Competitions",
-    desc: "Dance, singing, mimicry, comedy, and the Mr. Fresher and Miss Fresher competitions. The title winners will be announced after the activities conclude.",
+    time: "02:00 PM – 04:15 PM",
+    duration: "2 HR 15 MIN",
+    title: "CULTURAL SHOWCASE & MR. & MISS FRESHER ’26",
+    badge: "02:00 PM TALENT & TITLES",
+    subtitle: "Faculty Adjudication & Stage Artistry",
+    desc: "A vibrant showcase of classical and contemporary dance, music, theater, and the prestigious Mr. & Miss Fresher ’26 pageant, evaluated with distinction by our faculty jury.",
     icon: Crown
   },
   {
     id: 4,
     time: "04:15 PM – 05:00 PM",
     duration: "45 MIN",
-    title: "OPEN DJ FLOOR & CELEBRATION",
+    title: "COMMEMORATIVE PHOTOGRAPHY & CELEBRATION FINALE",
     badge: "04:15 PM FINALE",
-    subtitle: "Music, Dance & Group Photos",
-    desc: "Turn up the celebration on the open dance floor. Celebrate, dance, take batch photographs, and close the day with unforgettable joy.",
+    subtitle: "Batch Portraits & Musical Celebration",
+    desc: "Official commemorative batch portraits with professors and peers, followed by a celebratory musical floor, concluding punctually at 5:00 PM.",
     icon: Music2
   }
 ];
@@ -54,17 +54,17 @@ export default function AgendaSection() {
     playMicroTap();
     const title = encodeURIComponent("PRARAMBH ’26 — MBA Freshers Celebration");
     const details = encodeURIComponent(
-      "Official Freshers Day Celebration for MBA Batch 2026–2028.\n\n" +
-      "Date: Thursday, 29 October 2026 (11:40 AM – 5:00 PM)\n\n" +
-      "Main Event Schedule Highlights:\n" +
-      "• 11:40 AM: Welcome & Batch Icebreakers\n" +
-      "• 12:30 PM: Grand Fellowship Lunch\n" +
-      "• 01:30 PM – 04:15 PM: Stage Showcase & Fresher Titles ’26 (Performances & Mr./Miss Fresher competitions)\n" +
-      "• 04:15 PM – 05:00 PM: Open DJ Floor & Celebration Dance\n\n" +
+      "Official Freshers Induction & Cultural Celebration for MBA Batch 2026–2028.\n\n" +
+      "Date: Thursday, 29 October 2026 (12:00 PM – 5:00 PM IST)\n\n" +
+      "Official Schedule:\n" +
+      "• 12:00 PM – 01:00 PM: Academic Welcome & Induction Icebreakers\n" +
+      "• 01:00 PM – 02:00 PM: Grand Fellowship Luncheon\n" +
+      "• 02:00 PM – 04:15 PM: Cultural Showcase & Mr. and Miss Fresher ’26 Adjudication\n" +
+      "• 04:15 PM – 05:00 PM: Commemorative Batch Photography & Celebration DJ Floor\n\n" +
       "Venue: JRD Tata Hall, Srusti Academy of Management & Technology (Autonomous), Bhubaneswar."
     );
     const location = encodeURIComponent("JRD Tata Hall, Srusti Academy of Management & Technology, Bhubaneswar");
-    const dates = "20261029T061000Z/20261029T113000Z";
+    const dates = "20261029T063000Z/20261029T113000Z";
     window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}&ctz=Asia/Kolkata`, '_blank');
   };
 
@@ -97,7 +97,7 @@ export default function AgendaSection() {
         {/* Header Block */}
         <div className="confluence-header-block">
           <div className="confluence-eyebrow-pill">
-            <span>MAIN EVENT: THURSDAY, 29 OCTOBER 2026 · 11:40 AM TO 5:00 PM</span>
+            <span>MAIN EVENT: THURSDAY, 29 OCTOBER 2026 · 12:00 PM TO 5:00 PM</span>
           </div>
 
           <h2 className="confluence-master-title">
@@ -110,8 +110,8 @@ export default function AgendaSection() {
           </p>
 
           <p className="confluence-lead-description">
-            A thoughtfully planned celebration hosted at <strong>JRD Tata Hall</strong>. From warm batch introductions
-            to the fellowship lunch, stage performances, and the crowning of <strong>Mr. Fresher &amp; Miss Fresher ’26</strong>.
+            A thoughtfully curated academic and cultural celebration hosted at <strong>JRD Tata Hall</strong>. From the formal induction welcome and batch icebreakers
+            to the grand fellowship luncheon, artistic presentations, and the distinguished honours of <strong>Mr. Fresher &amp; Miss Fresher ’26</strong>.
           </p>
 
           {/* Key Metrics Capsule Ribbon (4 coordinates) */}
@@ -121,7 +121,7 @@ export default function AgendaSection() {
                 <Clock size={16} />
               </div>
               <div className="metric-text-group">
-                <strong className="metric-primary">11:40 AM – 5:00 PM</strong>
+                <strong className="metric-primary">12:00 PM – 5:00 PM</strong>
                 <span className="metric-secondary">Official Event Hours</span>
               </div>
             </div>
@@ -133,8 +133,8 @@ export default function AgendaSection() {
                 <Utensils size={16} />
               </div>
               <div className="metric-text-group">
-                <strong className="metric-primary">12:30 PM</strong>
-                <span className="metric-secondary">Grand Lunch Break</span>
+                <strong className="metric-primary">1:00 PM – 2:00 PM</strong>
+                <span className="metric-secondary">Grand Fellowship Banquet</span>
               </div>
             </div>
 
@@ -146,7 +146,7 @@ export default function AgendaSection() {
               </div>
               <div className="metric-text-group">
                 <strong className="metric-primary">Mr. &amp; Miss Fresher</strong>
-                <span className="metric-secondary">Premier Honours &amp; Titles</span>
+                <span className="metric-secondary">Distinguished Honours &amp; Titles</span>
               </div>
             </div>
 
@@ -212,9 +212,9 @@ export default function AgendaSection() {
             <Megaphone size={18} />
           </div>
           <div className="protocol-content">
-            <strong className="protocol-title">Official Schedule Protocol</strong>
+            <strong className="protocol-title">Official Schedule &amp; Dignitary Protocol</strong>
             <p className="protocol-text">
-              Reporting begins promptly at <strong>11:40 AM</strong> at JRD Tata Hall, with the Grand Fellowship Lunch at <strong>12:30 PM</strong>, followed by the crowning of <strong>Mr. &amp; Mrs. Fresher</strong> and concluding with the DJ celebration by <strong>5:00 PM</strong>.
+              Reporting commences promptly at <strong>12:00 PM</strong> at JRD Tata Hall. The Grand Fellowship Luncheon takes place from <strong>1:00 PM to 2:00 PM</strong>, followed by artistic performances, faculty adjudication for <strong>Mr. &amp; Miss Fresher ’26</strong>, and concludes by <strong>5:00 PM</strong>.
             </p>
           </div>
         </div>
@@ -228,7 +228,7 @@ export default function AgendaSection() {
             title="Add to Google Calendar"
           >
             <CalendarPlus size={15} />
-            <span>Add Schedule to Google Calendar (11:40 AM – 5:00 PM)</span>
+            <span>Add Schedule to Google Calendar (12:00 PM – 5:00 PM)</span>
           </button>
         </div>
       </div>

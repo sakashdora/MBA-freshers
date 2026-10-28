@@ -5070,3 +5070,316 @@
   color: #FFE699;
   text-shadow: 0 0 10px rgba(253, 235, 178, 0.4);
 }
+
+
+/* ==========================================================================
+   ACADEMIC INVITATION OVERTURE STYLES (NEW EXECUTIVE LOADING INTRO)
+   ========================================================================== */
+.intro-academic-overture {
+  background: radial-gradient(circle at 50% 38%, #0C1D3F 0%, #060F22 55%, #020610 100%) !important;
+  justify-content: space-between;
+}
+
+.overture-ambient-glow {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(800px, 90vw);
+  height: min(500px, 60vh);
+  background: radial-gradient(circle, rgba(200, 155, 56, 0.16) 0%, rgba(20, 60, 140, 0.12) 50%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.overture-starfield-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(229, 185, 87, 0.3) 1px, transparent 1px);
+  background-size: 36px 36px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.overture-center-monument {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 680px;
+  margin: auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.overture-card-frame {
+  width: 100%;
+  background: linear-gradient(175deg, rgba(12, 28, 62, 0.85) 0%, rgba(4, 10, 24, 0.94) 100%);
+  border: 1.5px solid rgba(229, 185, 87, 0.45);
+  border-radius: 22px;
+  padding: clamp(24px, 5vw, 42px) clamp(16px, 4vw, 36px);
+  box-shadow: 
+    0 24px 70px rgba(0, 0, 0, 0.75),
+    0 0 40px rgba(229, 185, 87, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.overture-crest-wrapper {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 14px;
+  filter: drop-shadow(0 4px 14px rgba(212, 175, 55, 0.45));
+}
+
+.overture-crest-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.overture-institution-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.eyebrow-rail {
+  width: 24px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(229, 185, 87, 0.6));
+}
+
+.eyebrow-institution {
+  font-family: var(--font-body, 'Outfit', sans-serif);
+  font-size: clamp(9px, 2vw, 11px);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #FCE7A2;
+  text-transform: uppercase;
+}
+
+.overture-department-tag {
+  font-family: var(--font-body, 'Outfit', sans-serif);
+  font-size: clamp(8.5px, 1.8vw, 10px);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #94A3B8;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+.overture-formal-greeting {
+  font-family: var(--font-title, 'Cinzel', serif);
+  font-size: clamp(14px, 2.8vw, 17px);
+  font-style: italic;
+  font-weight: 500;
+  color: #E2E8F0;
+  margin: 0 0 6px;
+  letter-spacing: 0.02em;
+}
+
+.overture-grand-title {
+  font-family: var(--font-title, 'Cinzel', serif);
+  font-size: clamp(34px, 7vw, 56px);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+  margin: 2px 0 2px;
+  text-shadow: 0 2px 20px rgba(229, 185, 87, 0.3);
+  line-height: 1.05;
+}
+
+.overture-gold-year {
+  color: #E5B957;
+  text-shadow: 0 0 24px rgba(229, 185, 87, 0.6);
+}
+
+.overture-grand-tagline {
+  font-family: var(--font-title, 'Cinzel', serif);
+  font-size: clamp(13px, 2.6vw, 16px);
+  font-style: italic;
+  font-weight: 500;
+  color: #FCD34D;
+  margin: 0 0 16px;
+  letter-spacing: 0.03em;
+}
+
+.overture-brief-ribbon {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 12px;
+  background: rgba(8, 18, 42, 0.7);
+  border: 1px solid rgba(229, 185, 87, 0.3);
+  border-radius: 9999px;
+  padding: 6px 18px;
+  margin-bottom: 22px;
+}
+
+.brief-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+}
+
+.brief-label {
+  font-size: 9px;
+  font-weight: 800;
+  color: #E5B957;
+  letter-spacing: 0.1em;
+}
+
+.brief-val {
+  font-weight: 700;
+  color: #F8FAFC;
+}
+
+.brief-sep {
+  color: rgba(229, 185, 87, 0.5);
+  font-size: 12px;
+}
+
+.overture-actions-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.overture-enter-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 380px;
+  padding: 13px 26px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #E5B957 0%, #C89B38 50%, #9E7418 100%);
+  color: #030814;
+  font-family: var(--font-body, 'Outfit', sans-serif);
+  font-size: clamp(12px, 2.2vw, 13.5px);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  box-shadow: 
+    0 8px 24px rgba(200, 155, 56, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.overture-enter-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(229, 185, 87, 0.6);
+  background: linear-gradient(135deg, #FDE68A 0%, #E5B957 50%, #B48520 100%);
+}
+
+.overture-enter-btn:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.overture-timer-track {
+  width: 100%;
+  max-width: 380px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.overture-timer-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #C89B38, #FDE047);
+  transition: width 0.08s linear;
+}
+
+.overture-auto-hint {
+  font-size: 10.5px;
+  color: #94A3B8;
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+/* Card Topbar Download Button */
+.card-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(14, 34, 76, 0.85);
+  border: 1px solid rgba(229, 185, 87, 0.45);
+  color: #FCE7A2;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-family: var(--font-body, 'Outfit', sans-serif);
+  font-size: 10.5px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.card-download-btn:hover {
+  background: #183C7E;
+  border-color: #E5B957;
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* Ambient Prompt Badge in Sealed State */
+.env-tap-callout {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  background: rgba(8, 18, 42, 0.94);
+  border: 1px solid rgba(229, 185, 87, 0.55);
+  border-radius: 9999px;
+  font-family: var(--font-body, 'Outfit', sans-serif);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #FCE7A2;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.65), 0 0 16px rgba(229, 185, 87, 0.3);
+  pointer-events: none;
+  white-space: nowrap;
+  animation: tapBadgeFloat 2.6s ease-in-out infinite alternate;
+  z-index: 15;
+}
+
+.tap-callout-icon {
+  color: #E5B957;
+  animation: tapSpin 4s linear infinite;
+}
+
+@keyframes tapBadgeFloat {
+  0%   { transform: translateX(-50%) translateY(0); }
+  100% { transform: translateX(-50%) translateY(-4px); }
+}
+
+@keyframes tapSpin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

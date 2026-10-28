@@ -162,7 +162,7 @@ export default function DressCodeEssentials() {
                   <div className="milestone-details">
                     <strong className="milestone-date-heading">Thursday, 29 October 2026</strong>
                     <div className="milestone-time-venue-row">
-                      <span className="milestone-time-spec">11:40 AM – 5:00 PM</span>
+                      <span className="milestone-time-spec">12:00 PM – 5:00 PM</span>
                       <span className="milestone-bullet-sep" aria-hidden="true">•</span>
                       <span className="milestone-venue-spec">JRD Tata Hall</span>
                     </div>
@@ -176,9 +176,9 @@ export default function DressCodeEssentials() {
                   <Utensils size={15} />
                 </div>
                 <div className="lunch-card-content">
-                  <span className="lunch-card-tag">FELLOWSHIP LUNCH</span>
+                  <span className="lunch-card-tag">FELLOWSHIP LUNCHEON</span>
                   <div className="lunch-card-desc">
-                    <strong>12:30 PM</strong> — Grand Fellowship Feast &amp; Mentorship
+                    <strong>1:00 PM – 2:00 PM</strong> — Grand Fellowship Banquet with Faculty &amp; Seniors
                   </div>
                 </div>
               </div>

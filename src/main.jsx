@@ -209,7 +209,7 @@ function App() {
           </p>
 
           <p className="hero-curated-lead">
-            With love, from your seniors to the MBA Batch of 2026–2028.
+            Cordially welcoming our esteemed faculty, mentors, and the incoming MBA Batch of 2026–2028.
           </p>
 
           {/* Essential Event Quick-Facts Bar — Chronological Highlights */}
@@ -226,12 +226,12 @@ function App() {
             <span className="hero-pillar-sep" aria-hidden="true">·</span>
             <div className="hero-pillar-item" role="listitem">
               <Sparkles size={14} className="hero-pillar-icon" />
-              <span>WE AWAIT YOUR GRACEFUL PRESENCE</span>
+              <span>HOURS: 12:00 PM – 5:00 PM</span>
             </div>
           </div>
 
           <p className="hero-date-notice">
-            Official Celebration: <strong>Thursday, 29 October 2026</strong> &nbsp;·&nbsp; Venue: <strong>JRD Tata Hall, Srusti Academy of Management &amp; Technology</strong>
+            Official Celebration: <strong>Thursday, 29 October 2026 · 12:00 PM to 5:00 PM</strong> &nbsp;·&nbsp; Fellowship Banquet: <strong>1:00 PM – 2:00 PM</strong> &nbsp;·&nbsp; Venue: <strong>JRD Tata Hall, Srusti Academy</strong>
           </p>
 
           {/* CTA: Open Your Invitation */}

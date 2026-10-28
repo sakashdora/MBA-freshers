@@ -174,10 +174,10 @@ export default function InteractiveEnvelope({ isLetterOpen, onToggleOpen }) {
       {isOpen && (
         <div className="env-header env-header-opened">
           <div className="env-eyebrow">
-            <span>A SPECIAL WELCOME · MBA BATCH 2026–2028</span>
+            <span>DEPARTMENT OF MBA · OFFICIAL INVITATION LETTER</span>
           </div>
           <p className="env-subtitle">
-            Department of MBA warmly invites you. Here are your celebration details.
+            Under the distinguished auspices of Srusti Academy of Management &amp; Technology, cordially welcoming our esteemed faculty, mentors, and the incoming MBA Batch of 2026–2028.
           </p>
         </div>
       )}
@@ -286,6 +286,20 @@ export default function InteractiveEnvelope({ isLetterOpen, onToggleOpen }) {
                   <Maximize2 size={11} />
                   <span>Full View</span>
                 </button>
+
+                <a
+                  href="/invitation_letter_prarambh2026.jpg"
+                  download="PRARAMBH_2026_Official_Invitation.jpg"
+                  className="card-download-btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    playMicroTap();
+                  }}
+                  aria-label="Download Official Invitation Letter"
+                >
+                  <Download size={11} />
+                  <span>Download</span>
+                </a>
               </div>
 
               {/* The Official Invitation Letter Poster File */}
@@ -421,6 +435,14 @@ export default function InteractiveEnvelope({ isLetterOpen, onToggleOpen }) {
             </div>
           </motion.div>
         </motion.div>
+
+        {/* Ambient Prompt Badge in Sealed State */}
+        {isSealed && (
+          <div className="env-tap-callout" aria-hidden="true">
+            <Sparkles size={12} className="tap-callout-icon" />
+            <span>CLICK SEAL TO OPEN OFFICIAL INVITATION</span>
+          </div>
+        )}
       </div>
 
       {isOpen && (

@@ -66,13 +66,6 @@ export function initGlobalAudioUnlock(onUnlockedCallback) {
       if (onUnlockedCallback) onUnlockedCallback();
     }
 
-    // Try starting swell if was previously blocked
-    if (introSwellAudio && isAutoplayBlocked) {
-      introSwellAudio.currentTime = 0;
-      introSwellAudio.volume = 0.85;
-      introSwellAudio.play().catch(() => {});
-    }
-
     ['pointerdown', 'touchstart', 'keydown', 'click'].forEach(evt => {
       window.removeEventListener(evt, unlock);
     });
@@ -488,10 +481,16 @@ export function toggleMasterSoundtrackMute() {
 }
 
 // ----------------------------------------------------------------------------
-// 9. STOP ALL INTRO AUDIO (Skip / Exit)
+// 9. STOP ALL INTRO AUDIO (Skip / Exit / Home Page Entry)
 // ----------------------------------------------------------------------------
 export function stopIntroAudio() {
-  stopMasterSoundtrack(300);
+  stopMasterSoundtrack(0);
+  if (masterIntroAudio) {
+    try {
+      masterIntroAudio.pause();
+      masterIntroAudio.currentTime = 0;
+    } catch (e) {}
+  }
   if (introSwellAudio) {
     try {
       introSwellAudio.pause();

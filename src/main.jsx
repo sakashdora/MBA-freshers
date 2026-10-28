@@ -13,7 +13,7 @@ import InteractiveEnvelope from './components/InteractiveEnvelope';
 import DressCodeEssentials from './components/DressCodeEssentials';
 import AgendaSection from './components/AgendaSection';
 import ClosingSignOff from './components/ClosingSignOff';
-import { initGlobalAudioUnlock, playMicroTap } from './utils/audio';
+import { initGlobalAudioUnlock, playMicroTap, stopIntroAudio } from './utils/audio';
 
 const INTRO_STORAGE_KEY = 'prarambh_intro_seen';
 
@@ -55,6 +55,7 @@ function App() {
   }, []);
 
   const handleCompleteIntro = () => {
+    stopIntroAudio();
     setShowIntro(false);
     setIsLetterOpen(false);
     try {

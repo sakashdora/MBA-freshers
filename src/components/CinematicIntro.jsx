@@ -3,12 +3,11 @@ import { motion, useReducedMotion } from 'motion/react';
 import { Volume2, VolumeX, ArrowRight, Sparkles, Play } from 'lucide-react';
 import {
   playMasterSoundtrack,
-  stopMasterSoundtrack,
+  stopIntroAudio,
   toggleMasterSoundtrackMute,
   getMasterIntroAudio,
   initGlobalAudioUnlock,
   playMicroTap,
-  playCelestialRevealChime,
   isMuted as checkIsMuted
 } from '../utils/audio';
 
@@ -48,10 +47,7 @@ export default function CinematicIntro({ onComplete }) {
     if (hasFinishedRef.current) return;
     hasFinishedRef.current = true;
     if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
-    stopMasterSoundtrack(350);
-    try {
-      playCelestialRevealChime();
-    } catch (e) {}
+    stopIntroAudio();
     onComplete();
   }, [onComplete]);
 
@@ -108,7 +104,7 @@ export default function CinematicIntro({ onComplete }) {
     return () => {
       if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
       if (cleanup) cleanup();
-      stopMasterSoundtrack(350);
+      stopIntroAudio();
       window.removeEventListener('click', handleGestureUnlock);
       window.removeEventListener('keydown', handleGestureUnlock);
     };

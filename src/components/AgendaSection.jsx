@@ -15,9 +15,7 @@ const TIMELINE_EVENTS = [
     badge: "11:40 AM WELCOME",
     subtitle: "Warm Introductions & Stage Games",
     desc: "The celebration begins as seniors and juniors unite. Meet your mentors, enjoy lively stage icebreakers, and begin forging bonds that will define your MBA years.",
-    icon: Users,
-    image: "/confluence_row1_gathering.jpg",
-    alt: "Auditorium stage gathering and senior-junior batch welcome"
+    icon: Users
   },
   {
     id: 2,
@@ -27,9 +25,7 @@ const TIMELINE_EVENTS = [
     badge: "12:30 PM LUNCH",
     subtitle: "Festive Fellowship Meal",
     desc: "A delicious fellowship lunch to relax, share stories, and create fond memories together with batchmates, seniors, and faculty.",
-    icon: Utensils,
-    image: "/confluence_row2_feast.jpg",
-    alt: "Fellowship banquet dining table"
+    icon: Utensils
   },
   {
     id: 3,
@@ -39,9 +35,7 @@ const TIMELINE_EVENTS = [
     badge: "01:30 PM SHOWCASE",
     subtitle: "Performances & Title Competitions",
     desc: "Dance, singing, mimicry, comedy, and the Mr. Fresher and Miss Fresher competitions. The title winners will be announced after the activities conclude.",
-    icon: Crown,
-    image: "/confluence_row3_crowning.jpg",
-    alt: "Stage showcase and fresher titles crowning"
+    icon: Crown
   },
   {
     id: 4,
@@ -51,9 +45,7 @@ const TIMELINE_EVENTS = [
     badge: "04:15 PM FINALE",
     subtitle: "Music, Dance & Group Photos",
     desc: "Turn up the celebration on the open dance floor. Celebrate, dance, take batch photographs, and close the day with unforgettable joy.",
-    icon: Music2,
-    image: "/confluence_row4_dj.jpg",
-    alt: "Open DJ celebration floor with cheering students"
+    icon: Music2
   }
 ];
 
@@ -85,36 +77,20 @@ export default function AgendaSection() {
       {/* Background Decorative Ambience & Side Flourishes */}
       <div className="confluence-bg-overlay" aria-hidden="true" />
       <div className="confluence-corner-decor top-left" aria-hidden="true">
-        <img 
-          src="/confluence_header_couple.png" 
-          alt="" 
-          className="confluence-decor-img" 
-          loading="lazy"
-        />
+        <svg viewBox="0 0 160 160" fill="none" className="corner-filigree-svg">
+          <path d="M 0 0 C 40 10 90 20 120 60 C 135 80 150 120 160 160" stroke="#E5B957" strokeWidth="1.2" opacity="0.45" />
+          <path d="M 0 30 C 50 40 80 60 100 110" stroke="#C89B38" strokeWidth="0.8" opacity="0.35" />
+          <path d="M 30 0 C 40 50 60 80 110 100" stroke="#C89B38" strokeWidth="0.8" opacity="0.35" />
+          <circle cx="120" cy="60" r="3" fill="#E5B957" opacity="0.7" />
+        </svg>
       </div>
       <div className="confluence-corner-decor top-right" aria-hidden="true">
-        <img 
-          src="/confluence_header_crowns.png" 
-          alt="" 
-          className="confluence-decor-img" 
-          loading="lazy"
-        />
-      </div>
-      <div className="confluence-side-ribbon left" aria-hidden="true">
-        <img 
-          src="/confluence_ribbon_left.png" 
-          alt="" 
-          className="confluence-decor-img" 
-          loading="lazy"
-        />
-      </div>
-      <div className="confluence-side-ribbon right" aria-hidden="true">
-        <img 
-          src="/confluence_ribbon_right.png" 
-          alt="" 
-          className="confluence-decor-img" 
-          loading="lazy"
-        />
+        <svg viewBox="0 0 160 160" fill="none" className="corner-filigree-svg">
+          <path d="M 160 0 C 120 10 70 20 40 60 C 25 80 10 120 0 160" stroke="#E5B957" strokeWidth="1.2" opacity="0.45" />
+          <path d="M 160 30 C 110 40 80 60 60 110" stroke="#C89B38" strokeWidth="0.8" opacity="0.35" />
+          <path d="M 130 0 C 120 50 100 80 50 100" stroke="#C89B38" strokeWidth="0.8" opacity="0.35" />
+          <circle cx="40" cy="60" r="3" fill="#E5B957" opacity="0.7" />
+        </svg>
       </div>
 
       <div className="confluence-container">
@@ -223,17 +199,6 @@ export default function AgendaSection() {
 
                     <p className="timeline-event-subtitle">{event.subtitle}</p>
                     <p className="timeline-event-desc">{event.desc}</p>
-                  </div>
-
-                  {/* 4. Photo Thumbnail on Right with Smooth Fade */}
-                  <div className="timeline-photo-col">
-                    <div className="photo-fade-scrim" aria-hidden="true" />
-                    <img 
-                      src={event.image} 
-                      alt={event.alt} 
-                      className="timeline-row-photo" 
-                      loading="lazy"
-                    />
                   </div>
                 </div>
               );

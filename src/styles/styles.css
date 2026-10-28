@@ -14,8 +14,8 @@
 
 :root {
   /* Core Palette Tokens — Midnight Obsidian, Royal Blue & Solar Gold */
-  --c-offwhite: #FAF9F5;
-  --c-offwhite-alt: #F3EFE6;
+  --c-offwhite: #02050D;         /* Deepest obsidian black */
+  --c-offwhite-alt: #060F24;     /* Midnight navy blue */
   --c-burgundy: #0B1933;         /* Deep royal navy blue */
   --c-burgundy-hover: #071022;   /* Obsidian navy */
   --c-wine: #060B17;             /* Deepest midnight black */
@@ -42,27 +42,27 @@
   --c-softpink-soft: rgba(235, 242, 250, 0.25);
   --c-purple: #1A3052;
 
-  /* Typography Colors — High-Contrast Obsidian & Navy */
-  --t-heading: #060D1A;
-  --t-body: #1E293B;
-  --t-muted: #475569;
+  /* Typography Colors — High-Contrast Luminous White & Gold */
+  --t-heading: #FFFFFF;
+  --t-body: #E2E8F0;
+  --t-muted: #94A3B8;
   --t-light: #FAF9F5;
   --t-light-muted: rgba(250, 249, 245, 0.85);
 
   /* Surface and Borders */
-  --surface-card: #FFFFFF;
-  --surface-cream: #F8FAFC;
-  --border-subtle: rgba(11, 25, 51, 0.12);
+  --surface-card: rgba(8, 20, 48, 0.85);
+  --surface-cream: #030712;
+  --border-subtle: rgba(212, 175, 55, 0.25);
   --border-active: rgba(212, 175, 55, 0.5);
   --border-gold: rgba(212, 175, 55, 0.7);
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(6, 13, 26, 0.08);
-  --shadow-md: 0 8px 24px rgba(36, 5, 15, 0.08);
-  --shadow-lg: 0 16px 40px rgba(36, 5, 15, 0.13);
-  --shadow-xl: 0 24px 60px rgba(36, 5, 15, 0.2);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.45);
+  --shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.6);
 
-  /* Font Families — Cinzel for Majestic TEJAS Title, Fraunces for Editorial, Outfit for Clean UI */
+  /* Font Families — Cinzel for Majestic Title, Fraunces for Editorial, Outfit for Clean UI */
   --font-title: 'Cinzel', 'Playfair Display', Georgia, serif;
   --font-display: 'Fraunces', Georgia, serif;
   --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -78,7 +78,7 @@
 
 html {
   font-family: var(--font-body);
-  background-color: var(--c-offwhite);
+  background-color: #02050D;
   color: var(--t-body);
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
@@ -92,7 +92,8 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   width: 100%;
-  background: var(--c-offwhite);
+  background: #02050D;
+  color: #F8FAFC;
   position: relative;
 }
 
@@ -101,6 +102,8 @@ body {
   overflow-x: hidden;
   width: 100%;
   position: relative;
+  background: #02050D;
+  color: #F8FAFC;
 }
 
 /* Accessibility Focus States */
@@ -698,7 +701,7 @@ body {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(26, 3, 10, 0.94);
+  background: rgba(4, 9, 22, 0.94);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid rgba(212, 175, 55, 0.35);
@@ -3168,7 +3171,7 @@ kbd {
    CLOSING SIGN-OFF & MINIMALIST PRESTIGE COLOPHON (8.5/10 Atelier Gold & Wine)
    ========================================================================== */
 .closing-signoff-section {
-  background: radial-gradient(ellipse at 50% 0%, #2D0715 0%, #17030A 55%, #0B0105 100%);
+  background: radial-gradient(ellipse at 50% 0%, #0A1933 0%, #050B18 55%, #02050D 100%);
   color: var(--t-light);
   padding: 72px 24px 36px;
   position: relative;
@@ -3249,7 +3252,7 @@ kbd {
   margin: 0 auto 32px;
   padding: 26px 28px;
   border-radius: 20px;
-  background: linear-gradient(165deg, rgba(255, 255, 255, 0.045) 0%, rgba(22, 11, 20, 0.5) 100%);
+  background: linear-gradient(165deg, rgba(14, 30, 64, 0.6) 0%, rgba(5, 12, 26, 0.85) 100%);
   border: 1px solid rgba(212, 175, 55, 0.28);
   box-shadow: 0 16px 44px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(14px);
@@ -3410,7 +3413,7 @@ kbd {
 }
 
 .signoff-scroll-top-btn:hover {
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(163, 30, 59, 0.4));
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(30, 64, 175, 0.5));
   border-color: #FFE599;
   color: #FFFFFF;
   transform: translateY(-2px);

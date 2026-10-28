@@ -180,7 +180,7 @@ function App() {
               </linearGradient>
             </defs>
             <circle cx="500" cy="180" r="140" stroke="#E5B957" strokeWidth="0.8" strokeDasharray="3 6" opacity="0.25" />
-            <circle cx="500" cy="180" r="260" stroke="#6E122E" strokeWidth="0.6" strokeDasharray="2 8" opacity="0.18" />
+            <circle cx="500" cy="180" r="260" stroke="#1E40AF" strokeWidth="0.6" strokeDasharray="2 8" opacity="0.3" />
             <line x1="80" y1="180" x2="920" y2="180" stroke="url(#heroLineGold)" strokeWidth="0.8" />
             <line x1="500" y1="10" x2="500" y2="350" stroke="#E5B957" strokeWidth="0.6" strokeDasharray="4 6" opacity="0.2" />
           </svg>

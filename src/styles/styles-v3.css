@@ -5550,3 +5550,652 @@
   0%   { transform: scale(0.9); }
   100% { transform: scale(1.15); }
 }
+
+
+/* ==========================================================================
+   MASTER MOBILE RESPONSIVENESS SUITE (SMARTPHONES 320PX - 768PX)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  /* Prevent horizontal scrolling & ensure fluid containment */
+  html, body, #root, .tejas-app-root {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden !important;
+  }
+
+  /* 1. CINEMATIC OVERTURE / INTRO SCREEN ON MOBILE */
+  .intro-editorial-curtain.intro-academic-overture {
+    height: auto !important;
+    min-height: 100dvh !important;
+    max-height: unset !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    padding: max(10px, env(safe-area-inset-top)) 10px max(24px, env(safe-area-inset-bottom)) !important;
+    box-sizing: border-box;
+  }
+
+  .intro-control-hud {
+    width: 100%;
+    height: 38px;
+    margin-bottom: 10px;
+    padding: 0 4px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .intro-hud-btn {
+    padding: 5px 12px;
+    font-size: 10.5px;
+    min-height: 32px;
+    gap: 5px;
+  }
+
+  .overture-center-monument {
+    width: 100%;
+    max-width: 100%;
+    margin: auto 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .overture-card-frame {
+    padding: 18px 12px 20px;
+    border-radius: 18px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.8), 0 0 24px rgba(229, 185, 87, 0.12);
+  }
+
+  .overture-crest-wrapper {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 8px;
+  }
+
+  .overture-institution-eyebrow {
+    gap: 6px;
+    margin-bottom: 2px;
+  }
+
+  .eyebrow-rail {
+    width: 12px;
+  }
+
+  .eyebrow-institution {
+    font-size: 8px;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+  }
+
+  .overture-department-tag {
+    font-size: 7.5px;
+    margin: 0 0 6px;
+    letter-spacing: 0.08em;
+  }
+
+  .overture-formal-greeting {
+    font-size: 11px;
+    margin: 0 0 4px;
+    line-height: 1.35;
+    padding: 0 4px;
+  }
+
+  .overture-title-stage {
+    min-height: 44px;
+    margin: 2px 0 4px;
+    width: 100%;
+  }
+
+  .overture-letter-rack {
+    gap: clamp(2px, 1.2vw, 5px);
+    width: 100%;
+    justify-content: center;
+  }
+
+  .overture-beat-letter {
+    font-size: clamp(20px, 6.2vw, 32px);
+    letter-spacing: 0;
+  }
+
+  .overture-grand-title {
+    font-size: clamp(25px, 7.8vw, 36px);
+    line-height: 1.1;
+    margin: 2px 0;
+  }
+
+  .overture-gold-year {
+    font-size: 0.9em;
+    margin-left: 4px;
+  }
+
+  .overture-grand-tagline {
+    font-size: 12px;
+    margin: 0 0 10px;
+    line-height: 1.3;
+  }
+
+  .overture-brief-ribbon {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    padding: 6px 10px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+  }
+
+  .brief-item {
+    gap: 4px;
+    font-size: 9.5px;
+  }
+
+  .brief-label {
+    font-size: 8px;
+  }
+
+  .brief-val {
+    font-size: 9.5px;
+  }
+
+  .brief-sep {
+    display: inline-block;
+  }
+
+  .overture-enter-btn {
+    padding: 11px 18px;
+    font-size: 11.5px;
+    width: 100%;
+    max-width: 100%;
+    letter-spacing: 0.06em;
+    border-radius: 9999px;
+  }
+
+  .overture-timer-track {
+    width: 100%;
+    max-width: 100%;
+    height: 2.5px;
+    margin-bottom: 6px;
+  }
+
+  .overture-auto-hint {
+    font-size: 9px;
+    line-height: 1.35;
+    padding: 0 6px;
+  }
+
+  .overture-credits-bar {
+    margin-top: 10px;
+    padding: 5px 12px;
+    gap: 4px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .credits-label {
+    font-size: 9.5px;
+  }
+
+  .credits-names {
+    font-size: 10px;
+  }
+
+  /* 2. TOP BAR & MOBILE MENU DRAWER */
+  .hero-top-bar {
+    padding: 0 12px;
+    height: 48px;
+  }
+
+  .hero-eyebrow-badge {
+    font-size: 8px;
+    letter-spacing: 0.06em;
+    padding: 4px 8px;
+    max-width: calc(100vw - 64px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hero-menu-drawer {
+    right: 12px;
+    left: 12px;
+    top: 54px;
+    width: auto;
+    min-width: unset;
+    padding: 14px 16px;
+    gap: 8px;
+  }
+
+  .hero-menu-drawer a {
+    font-size: 12.5px;
+    padding: 8px 12px;
+  }
+
+  /* 3. HERO SECTION ON MOBILE */
+  .main-hero-composition {
+    padding: 8px 10px 30px;
+  }
+
+  .hero-master-title {
+    font-size: clamp(32px, 8.5vw, 46px);
+    margin-bottom: 2px;
+  }
+
+  .hero-tagline {
+    font-size: clamp(16px, 4.8vw, 22px);
+    margin-bottom: 4px;
+  }
+
+  .hero-curated-lead {
+    font-size: 11.5px;
+    line-height: 1.45;
+    padding: 0 8px;
+    margin-bottom: 10px;
+  }
+
+  .hero-pillars-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 10px;
+    padding: 6px 12px;
+    max-width: 96vw;
+    margin: 0 auto 10px;
+  }
+
+  .hero-pillar-item {
+    font-size: 9px;
+    letter-spacing: 0.04em;
+  }
+
+  .hero-date-notice {
+    font-size: 11px;
+    line-height: 1.4;
+    padding: 0 8px;
+    margin-bottom: 12px;
+  }
+
+  .hero-direct-open-btn {
+    padding: 9px 20px;
+    font-size: 11px;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  /* 4. 3D ENVELOPE / FOLIO ON MOBILE */
+  .env-stage {
+    padding: 0 6px;
+    margin-top: 12px;
+  }
+
+  .env-chassis {
+    max-width: min(96vw, 420px);
+  }
+
+  .env-chassis.is-sealed {
+    min-height: 210px;
+  }
+
+  .env-3d-shell {
+    height: clamp(180px, 50vw, 210px);
+  }
+
+  .env-seal {
+    width: 70px;
+    height: 70px;
+    margin-top: -35px;
+    margin-left: -35px;
+  }
+
+  .seal-disc {
+    width: 70px;
+    height: 70px;
+  }
+
+  .env-tap-callout {
+    bottom: -18px;
+    font-size: 9px;
+    padding: 4px 10px;
+    max-width: 90vw;
+  }
+
+  .env-chassis.is-open {
+    padding-top: 250px;
+    min-height: 840px;
+    margin-bottom: 24px;
+  }
+
+  .card-poster-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    padding: 0 2px 6px;
+    width: 100%;
+  }
+
+  .card-reseal-btn,
+  .card-zoom-btn,
+  .card-download-btn {
+    flex: 1 1 auto;
+    justify-content: center;
+    padding: 5px 6px;
+    font-size: 9.5px;
+    gap: 3px;
+    white-space: nowrap;
+  }
+
+  .card-poster-wrapper {
+    max-height: calc(100vh - 200px);
+    border-radius: 8px;
+  }
+
+  .card-poster-img {
+    max-height: calc(100vh - 200px);
+  }
+
+  .poster-actions {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    padding-top: 6px;
+  }
+
+  .card-btn {
+    width: 100%;
+    padding: 9px 12px;
+    font-size: 11.5px;
+  }
+
+  /* 5. LIGHTBOX MODAL ON MOBILE */
+  .poster-lightbox-overlay {
+    padding: 8px;
+  }
+
+  .poster-lightbox-dialog {
+    max-width: 100%;
+    max-height: 96vh;
+    border-radius: 12px;
+  }
+
+  .poster-lightbox-header {
+    padding: 10px 12px;
+  }
+
+  .lightbox-title {
+    font-size: 11px;
+    max-width: 55vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .lightbox-btn {
+    padding: 5px 10px;
+    font-size: 10px;
+  }
+
+  /* 6. DRESS CODE & ESSENTIALS ON MOBILE */
+  .essentials-section {
+    padding: 40px 10px 50px;
+  }
+
+  .essentials-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .essentials-panel {
+    padding: 16px 12px 18px;
+    border-radius: 16px;
+  }
+
+  .panel-header {
+    margin-bottom: 14px;
+  }
+
+  .panel-title {
+    font-size: 16px;
+  }
+
+  .panel-subtitle {
+    font-size: 11.5px;
+  }
+
+  .dress-cards-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .dress-card-arch {
+    aspect-ratio: 1 / 1.5;
+    border-radius: 12px 12px 8px 8px;
+  }
+
+  .dress-card-info {
+    padding: 6px 4px 2px;
+  }
+
+  .dress-card-title {
+    font-size: 12px;
+  }
+
+  .dress-card-outfit {
+    font-size: 10px;
+  }
+
+  .essential-milestone-card {
+    padding: 12px 10px;
+    border-radius: 12px;
+  }
+
+  .milestone-date-heading {
+    font-size: 13.5px;
+  }
+
+  .milestone-time-venue-row {
+    font-size: 11px;
+    flex-wrap: wrap;
+    gap: 3px 6px;
+  }
+
+  .essential-lunch-card {
+    padding: 10px 12px;
+    gap: 10px;
+    border-radius: 12px;
+  }
+
+  .lunch-card-tag {
+    font-size: 8.5px;
+  }
+
+  .lunch-card-desc {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  /* 7. CELEBRATION SCHEDULE ON MOBILE */
+  .confluence-showcase-section {
+    padding: 40px 8px 50px;
+  }
+
+  .confluence-container {
+    padding: 0 4px;
+  }
+
+  .confluence-eyebrow-pill {
+    font-size: 8px;
+    padding: 4px 8px;
+    letter-spacing: 0.04em;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .confluence-master-title {
+    font-size: clamp(20px, 5.8vw, 30px);
+    line-height: 1.15;
+  }
+
+  .confluence-lead-description {
+    font-size: 11.5px;
+    line-height: 1.45;
+    padding: 0 4px;
+  }
+
+  .confluence-metrics-capsule {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 14px;
+  }
+
+  .metric-primary {
+    font-size: 11px;
+  }
+
+  .metric-secondary {
+    font-size: 9px;
+  }
+
+  .confluence-timeline-card {
+    padding: 4px;
+    border-radius: 14px;
+  }
+
+  .confluence-timeline-row {
+    grid-template-areas:
+      "icon time"
+      "info info";
+    grid-template-columns: 34px 1fr;
+    row-gap: 8px;
+    column-gap: 8px;
+    padding: 12px 10px;
+  }
+
+  .timeline-icon-disc {
+    width: 34px;
+    height: 34px;
+  }
+
+  .timeline-event-title {
+    font-size: 13.5px;
+  }
+
+  .timeline-badge-pill {
+    font-size: 8px;
+    padding: 2px 6px;
+  }
+
+  .timeline-event-subtitle {
+    font-size: 11px;
+  }
+
+  .timeline-event-desc {
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .confluence-protocol-card {
+    padding: 12px 10px;
+    gap: 8px;
+    border-radius: 12px;
+  }
+
+  .protocol-title {
+    font-size: 12px;
+  }
+
+  .protocol-text {
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .confluence-cal-btn {
+    width: 100%;
+    padding: 11px 14px;
+    font-size: 11px;
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.35;
+  }
+
+  /* 8. FOOTER SIGNOFF ON MOBILE */
+  .closing-signoff-section {
+    padding: 30px 10px 40px;
+  }
+
+  .signoff-attribution-card {
+    padding: 16px 12px;
+  }
+
+  .attribution-quote {
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+
+  .attribution-dedication {
+    font-size: 11px;
+  }
+
+  .attribution-dept {
+    font-size: 9.5px;
+    line-height: 1.4;
+  }
+
+  .signoff-bottom-bar {
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+    font-size: 10px;
+  }
+
+  .signoff-creator-credit {
+    padding: 6px 12px;
+    font-size: 10.5px;
+  }
+}
+
+/* Extra small devices (<= 380px) */
+@media (max-width: 380px) {
+  .confluence-metrics-capsule {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .overture-beat-letter {
+    font-size: 18px;
+  }
+
+  .overture-grand-title {
+    font-size: 24px;
+  }
+
+  .dress-cards-row {
+    gap: 8px;
+  }
+
+  .card-poster-topbar {
+    flex-wrap: wrap;
+  }
+
+  .card-reseal-btn,
+  .card-zoom-btn,
+  .card-download-btn {
+    font-size: 9px;
+    padding: 4px 6px;
+  }
+}

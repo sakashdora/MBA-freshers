@@ -16,11 +16,11 @@
   --c-parchment-sand:  #EFE5D3;    /* Muted sand parchment for borders & secondary cards */
   --c-parchment-deep:  #E3D4BC;    /* Aged paper tone */
 
-  /* 3. Imperial Wine, Oxblood & Velvet Crimson */
-  --c-wine-oxblood:    #360815;    /* Deepest oxblood shadow */
-  --c-wine-velvet:     #520D22;    /* Royal velvet wine for envelope & flagship badges */
-  --c-burgundy-rich:   #6E122E;    /* Primary heritage burgundy */
-  --c-crimson-bright:  #941D3E;    /* Radiant crimson accent & hover */
+  /* 3. Midnight Obsidian & Royal Sapphire Blue */
+  --c-wine-oxblood:    #050B16;    /* Deepest obsidian black shadow */
+  --c-wine-velvet:     #0D1B34;    /* Royal midnight navy for envelope & flagship badges */
+  --c-burgundy-rich:   #152F5A;    /* Primary heritage royal blue */
+  --c-crimson-bright:  #1D478A;    /* Radiant sapphire blue accent & hover */
 
   /* 4. Butter Yellow & Solar Gold */
   --c-gold-metallic:   #C89B38;    /* True brushed brass gold */
@@ -822,10 +822,10 @@
   font-size: clamp(42px, 6vw, 68px);
   font-weight: 800;
   line-height: 1.02;
-  color: #6E122E;
+  color: #07101E;
   margin-bottom: 2px;
   letter-spacing: 0.03em;
-  text-shadow: 0 2px 16px rgba(110, 18, 46, 0.12);
+  text-shadow: 0 2px 16px rgba(11, 23, 46, 0.18);
 }
 
 .hero-master-title .gold-accent {
@@ -864,10 +864,10 @@
   font-size: clamp(22px, 3.4vw, 34px);
   font-style: italic;
   font-weight: 500;
-  color: #7A1030;
+  color: #123262;
   margin-bottom: 4px;
   letter-spacing: 0.01em;
-  text-shadow: 0 1px 8px rgba(122, 16, 48, 0.08);
+  text-shadow: 0 1px 8px rgba(18, 50, 98, 0.1);
 }
 
 .hero-curated-lead {
@@ -908,7 +908,7 @@
 }
 
 .hero-date-notice strong {
-  color: #6E122E;
+  color: #0E254A;
   font-weight: 700;
 }
 
@@ -4362,7 +4362,7 @@
   font-family: var(--font-title);
   font-size: clamp(32px, 4.4vw, 54px);
   font-weight: 900;
-  color: #681023;
+  color: #0A162B;
   letter-spacing: 0.025em;
   text-transform: uppercase;
 }

@@ -61,7 +61,7 @@ export default function InteractiveEnvelope({ isLetterOpen, onToggleOpen }) {
           particleCount: 75,
           spread: 70,
           origin: { y: 0.55 },
-          colors: ['#E5B957', '#C89B38', '#7A1030', '#FCE7A2', '#FDF8F0'],
+          colors: ['#E5B957', '#C89B38', '#143566', '#0B172E', '#FDF8F0'],
           gravity: 0.85,
         });
       }
@@ -327,7 +327,7 @@ export default function InteractiveEnvelope({ isLetterOpen, onToggleOpen }) {
                   onClick={(e) => {
                     e.stopPropagation();
                     if (!prefersReducedMotion) {
-                      confetti({ particleCount: 65, spread: 70, colors: ['#E5B957', '#C89B38', '#7A1030', '#FCE7A2'] });
+                      confetti({ particleCount: 65, spread: 70, colors: ['#E5B957', '#C89B38', '#143566', '#0B172E', '#FCE7A2'] });
                     }
                   }}
                   aria-label="Celebrate with us"
@@ -384,10 +384,10 @@ export default function InteractiveEnvelope({ isLetterOpen, onToggleOpen }) {
               <svg viewBox="0 0 100 100" fill="none" className="seal-svg" aria-hidden="true">
                 <defs>
                   <radialGradient id="rubySealGrad" cx="35%" cy="30%" r="70%">
-                    <stop offset="0%" stopColor="#C9184A" />
-                    <stop offset="38%" stopColor="#800F2F" />
-                    <stop offset="78%" stopColor="#4A051A" />
-                    <stop offset="100%" stopColor="#22020B" />
+                    <stop offset="0%" stopColor="#1E4B8C" />
+                    <stop offset="38%" stopColor="#0E2A54" />
+                    <stop offset="78%" stopColor="#081730" />
+                    <stop offset="100%" stopColor="#030812" />
                   </radialGradient>
                   <linearGradient id="goldBezelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#FFF6D8" />

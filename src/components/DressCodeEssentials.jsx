@@ -8,25 +8,25 @@ export default function DressCodeEssentials() {
       id: 'senior-boys',
       title: 'Seniors Boys',
       outfit: 'Casual Wear',
-      image: '/dress_junior_boy.jpg'
+      image: '/char_senior_boy_casual.jpg'
     },
     {
       id: 'senior-girls',
       title: 'Seniors Girls',
       outfit: 'Saree',
-      image: '/dress_senior_girl_v2.jpg'
+      image: '/char_senior_girl_saree.jpg'
     },
     {
       id: 'junior-boys',
       title: 'Juniors Boys',
       outfit: 'Kurta',
-      image: '/dress_senior_boy.jpg'
+      image: '/char_junior_boy_kurta.jpg'
     },
     {
       id: 'junior-girls',
       title: 'Juniors Girls',
       outfit: 'Ethnic Wear',
-      image: '/dress_junior_girl.jpg'
+      image: '/char_junior_girl_ethnic.jpg'
     }
   ];
 

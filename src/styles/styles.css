@@ -13,51 +13,51 @@
    ========================================================================== */
 
 :root {
-  /* Core Palette Tokens — Imperial Velvet Wine & Solar Gold (Tejas Radiance) */
-  --c-offwhite: #FAF7F2;
-  --c-offwhite-alt: #F4EBE0;
-  --c-burgundy: #5B0E23;
-  --c-burgundy-hover: #430919;
-  --c-wine: #380716;
-  --c-wine-deep: #1A030A;
-  --c-crimson: #8C152F;
-  --c-warmred: #A31E3B;
-  --c-warmred-glow: rgba(163, 30, 59, 0.28);
+  /* Core Palette Tokens — Midnight Obsidian, Royal Blue & Solar Gold */
+  --c-offwhite: #FAF9F5;
+  --c-offwhite-alt: #F3EFE6;
+  --c-burgundy: #0B1933;         /* Deep royal navy blue */
+  --c-burgundy-hover: #071022;   /* Obsidian navy */
+  --c-wine: #060B17;             /* Deepest midnight black */
+  --c-wine-deep: #03060C;        /* Absolute black */
+  --c-crimson: #143566;          /* Royal sapphire blue */
+  --c-warmred: #1A4B8C;          /* Brilliant royal blue */
+  --c-warmred-glow: rgba(26, 75, 140, 0.35);
   
   /* Signature Radiant Gold */
   --c-gold: #D4AF37;
   --c-gold-light: #FDEBB2;
   --c-gold-deep: #9E7418;
-  --c-gold-glow: rgba(212, 175, 55, 0.35);
+  --c-gold-glow: rgba(212, 175, 55, 0.38);
 
-  /* Harmonious Silk & Champagne Accents (Eliminated clashing neon cyan/pastels) */
-  --c-champagne: #F4E8D1;
-  --c-champagne-soft: rgba(244, 232, 209, 0.22);
-  --c-rosegold: #E2AAB3;
-  --c-rosegold-soft: rgba(226, 170, 179, 0.2);
-  --c-skyblue: #DDEBF2;          /* Refined pearlescent slate, no neon cyan */
-  --c-skyblue-soft: rgba(221, 235, 242, 0.2);
+  /* Harmonious Silk & Champagne Accents */
+  --c-champagne: #F5EADB;
+  --c-champagne-soft: rgba(245, 234, 219, 0.22);
+  --c-rosegold: #C7B299;
+  --c-rosegold-soft: rgba(199, 178, 153, 0.2);
+  --c-skyblue: #D9E8F5;          /* Celestial blue silk */
+  --c-skyblue-soft: rgba(217, 232, 245, 0.22);
   --c-skyblue-border: rgba(212, 175, 55, 0.45);
-  --c-softpink: #F8E5E9;         /* Warm blush silk */
-  --c-softpink-soft: rgba(248, 229, 233, 0.25);
-  --c-purple: #755B77;
+  --c-softpink: #EBF2FA;         /* Soft mist blue */
+  --c-softpink-soft: rgba(235, 242, 250, 0.25);
+  --c-purple: #1A3052;
 
-  /* Typography Colors — High-Contrast Obsidian Bronze */
-  --t-heading: #24050F;
-  --t-body: #3B2A2F;
-  --t-muted: #725D63;
-  --t-light: #FAF7F2;
-  --t-light-muted: rgba(250, 247, 242, 0.82);
+  /* Typography Colors — High-Contrast Obsidian & Navy */
+  --t-heading: #060D1A;
+  --t-body: #1E293B;
+  --t-muted: #475569;
+  --t-light: #FAF9F5;
+  --t-light-muted: rgba(250, 249, 245, 0.85);
 
   /* Surface and Borders */
   --surface-card: #FFFFFF;
-  --surface-cream: #FAF6EE;
-  --border-subtle: rgba(91, 14, 35, 0.12);
+  --surface-cream: #F8FAFC;
+  --border-subtle: rgba(11, 25, 51, 0.12);
   --border-active: rgba(212, 175, 55, 0.5);
-  --border-gold: rgba(212, 175, 55, 0.65);
+  --border-gold: rgba(212, 175, 55, 0.7);
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(36, 5, 15, 0.06);
+  --shadow-sm: 0 2px 8px rgba(6, 13, 26, 0.08);
   --shadow-md: 0 8px 24px rgba(36, 5, 15, 0.08);
   --shadow-lg: 0 16px 40px rgba(36, 5, 15, 0.13);
   --shadow-xl: 0 24px 60px rgba(36, 5, 15, 0.2);

@@ -80,7 +80,7 @@ export default function ClosingSignOff() {
             loading="lazy"
           />
           <span className="creator-credit-text">
-            Designed &amp; developed by <strong>True Inspire</strong>
+            Designed &amp; Developed by <strong>Chandan Mahapatra</strong> &amp; <strong>S Akash Dora</strong> · True Inspire
           </span>
         </a>
       </div>

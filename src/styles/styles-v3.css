@@ -5383,3 +5383,170 @@
   0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+
+/* ==========================================================================
+   SMOOTH BEAT SYNCHRONIZATION & CREDITS BAR STYLES
+   ========================================================================== */
+.overture-title-stage {
+  min-height: clamp(54px, 8.5vw, 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px 0 6px;
+  position: relative;
+  width: 100%;
+}
+
+.overture-letter-rack {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(4px, 1.2vw, 10px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.overture-letter-rack.is-riser {
+  animation: rackRiserVibration 0.3s ease-in-out infinite alternate;
+}
+
+@keyframes rackRiserVibration {
+  0%   { transform: scale(0.98); }
+  100% { transform: scale(1.02); }
+}
+
+.overture-beat-letter {
+  display: inline-block;
+  font-family: var(--font-title, 'Cinzel', serif);
+  font-size: clamp(30px, 6.2vw, 52px);
+  font-weight: 900;
+  color: rgba(229, 185, 87, 0.22);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(0.95);
+  opacity: 0.35;
+}
+
+.overture-beat-letter.hit {
+  color: #FFFFFF;
+  opacity: 1;
+  transform: scale(1);
+  text-shadow: 0 0 16px rgba(229, 185, 87, 0.75), 0 0 32px rgba(255, 235, 160, 0.4);
+}
+
+.overture-beat-letter.just-hit {
+  animation: letterBeatPulse 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes letterBeatPulse {
+  0% {
+    transform: scale(1.36) translateY(-5px);
+    color: #FFF9E6;
+    text-shadow: 0 0 28px rgba(255, 235, 160, 1), 0 0 55px rgba(229, 185, 87, 0.95);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    color: #FFFFFF;
+    text-shadow: 0 0 18px rgba(229, 185, 87, 0.75);
+  }
+}
+
+.overture-grand-title.climax-drop {
+  animation: climaxTitleImpact 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes climaxTitleImpact {
+  0% {
+    transform: scale(1.2);
+    filter: brightness(1.6) drop-shadow(0 0 40px rgba(229, 185, 87, 0.95));
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1) drop-shadow(0 2px 20px rgba(229, 185, 87, 0.35));
+  }
+}
+
+.overture-grand-tagline.waiting {
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.overture-grand-tagline.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.overture-brief-ribbon.waiting {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.overture-brief-ribbon.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dedicated Credits Bar on Intro Card */
+.overture-credits-bar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 6px 18px;
+  background: rgba(8, 20, 48, 0.7);
+  border: 1px solid rgba(229, 185, 87, 0.35);
+  border-radius: 9999px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.credits-label {
+  font-family: var(--font-body, 'Outfit', sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  color: #94A3B8;
+  letter-spacing: 0.04em;
+}
+
+.credits-names {
+  font-family: var(--font-body, 'Outfit', sans-serif);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #FCE7A2;
+  letter-spacing: 0.03em;
+}
+
+.credits-sep {
+  color: rgba(229, 185, 87, 0.6);
+  font-size: 12px;
+}
+
+/* Audio unlock callout */
+.intro-hud-btn.sound-toggle.needs-unlock {
+  border-color: #E5B957;
+  animation: audioUnlockPulse 2s ease-in-out infinite;
+}
+
+@keyframes audioUnlockPulse {
+  0%   { box-shadow: 0 0 0 rgba(229, 185, 87, 0); }
+  50%  { box-shadow: 0 0 16px rgba(229, 185, 87, 0.6); }
+  100% { box-shadow: 0 0 0 rgba(229, 185, 87, 0); }
+}
+
+.pulse-gold {
+  color: #FCE7A2;
+  animation: pulseGold 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGold {
+  0%   { transform: scale(0.9); }
+  100% { transform: scale(1.15); }
+}

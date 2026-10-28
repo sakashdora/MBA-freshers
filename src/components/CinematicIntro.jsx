@@ -1,32 +1,118 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { Volume2, VolumeX, ArrowRight, Sparkles, Award } from 'lucide-react';
+import { Volume2, VolumeX, ArrowRight, Sparkles, Play } from 'lucide-react';
 import {
-  playCelestialRevealChime,
-  playMicroTap,
+  playMasterSoundtrack,
+  stopMasterSoundtrack,
+  toggleMasterSoundtrackMute,
+  getMasterIntroAudio,
   initGlobalAudioUnlock,
-  toggleAudioMute,
+  playMicroTap,
+  playCelestialRevealChime,
   isMuted as checkIsMuted
 } from '../utils/audio';
 
+const LETTER_BEATS = [
+  { char: 'P', time: 1.55 },
+  { char: 'R', time: 2.05 },
+  { char: 'A', time: 2.55 },
+  { char: 'R', time: 3.05 },
+  { char: 'A', time: 3.60 },
+  { char: 'M', time: 4.15 },
+  { char: 'B', time: 4.75 },
+  { char: 'H', time: 5.30 },
+];
+
+const CUES = {
+  START_BEATS: 1.55,
+  END_BEATS: 5.40,
+  RISER: 5.50,
+  CLIMAX: 6.30,
+  YEAR: 6.80,
+  TAGLINE: 7.30,
+  DETAILS: 8.00,
+  TOTAL: 9.74
+};
+
 export default function CinematicIntro({ onComplete }) {
   const [isMuted, setIsMuted] = useState(() => checkIsMuted());
+  const [audioBlocked, setAudioBlocked] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
   const [progress, setProgress] = useState(0);
   const prefersReducedMotion = useReducedMotion();
   const hasFinishedRef = useRef(false);
-  const timerRef = useRef(null);
+  const startTimeRef = useRef(null);
   const animFrameRef = useRef(null);
 
   const handleFinish = useCallback(() => {
     if (hasFinishedRef.current) return;
     hasFinishedRef.current = true;
-    if (timerRef.current) clearTimeout(timerRef.current);
     if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
+    stopMasterSoundtrack(350);
     try {
       playCelestialRevealChime();
     } catch (e) {}
     onComplete();
   }, [onComplete]);
+
+  // Audio start & fallback clock loop
+  useEffect(() => {
+    initGlobalAudioUnlock();
+    startTimeRef.current = performance.now();
+
+    const cleanup = playMasterSoundtrack({
+      onEnded: () => {
+        handleFinish();
+      },
+      onError: (err) => {
+        console.warn('Intro soundtrack autoplay prevented:', err);
+        setAudioBlocked(true);
+      }
+    });
+
+    // User gesture fallback unlocker
+    const handleGestureUnlock = () => {
+      initGlobalAudioUnlock();
+      const a = getMasterIntroAudio();
+      if (a && a.paused) {
+        a.play().then(() => setAudioBlocked(false)).catch(() => {});
+      }
+    };
+    window.addEventListener('click', handleGestureUnlock, { once: true, passive: true });
+    window.addEventListener('keydown', handleGestureUnlock, { once: true, passive: true });
+
+    // High-precision RAF loop for beat tracking
+    const tick = () => {
+      const audio = getMasterIntroAudio();
+      let t = 0;
+      if (audio && !audio.paused && audio.currentTime > 0) {
+        t = audio.currentTime;
+      } else {
+        t = (performance.now() - startTimeRef.current) / 1000;
+      }
+
+      setCurrentTime(t);
+      const p = Math.min(1, t / CUES.TOTAL);
+      setProgress(p);
+
+      if (t >= CUES.TOTAL) {
+        handleFinish();
+        return;
+      }
+
+      animFrameRef.current = requestAnimationFrame(tick);
+    };
+
+    animFrameRef.current = requestAnimationFrame(tick);
+
+    return () => {
+      if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
+      if (cleanup) cleanup();
+      stopMasterSoundtrack(350);
+      window.removeEventListener('click', handleGestureUnlock);
+      window.removeEventListener('keydown', handleGestureUnlock);
+    };
+  }, [handleFinish]);
 
   // Keyboard accessibility
   useEffect(() => {
@@ -35,7 +121,7 @@ export default function CinematicIntro({ onComplete }) {
         e.preventDefault();
         handleFinish();
       } else if (e.key === 'm' || e.key === 'M') {
-        const nextMuted = toggleAudioMute();
+        const nextMuted = toggleMasterSoundtrackMute();
         setIsMuted(nextMuted);
       }
     };
@@ -43,35 +129,14 @@ export default function CinematicIntro({ onComplete }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [handleFinish]);
 
-  // Smooth Auto-reveal progress (4 seconds)
-  useEffect(() => {
-    initGlobalAudioUnlock();
-    const duration = 4200; // 4.2s graceful auto-advance
-    const start = performance.now();
-
-    const tick = (now) => {
-      const elapsed = now - start;
-      const p = Math.min(1, elapsed / duration);
-      setProgress(p);
-
-      if (p < 1) {
-        animFrameRef.current = requestAnimationFrame(tick);
-      } else {
-        handleFinish();
-      }
-    };
-
-    animFrameRef.current = requestAnimationFrame(tick);
-
-    return () => {
-      if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
-    };
-  }, [handleFinish]);
-
   const handleToggleMute = (e) => {
     e.stopPropagation();
     playMicroTap();
-    const nextMuted = toggleAudioMute();
+    const a = getMasterIntroAudio();
+    if (a && a.paused) {
+      a.play().then(() => setAudioBlocked(false)).catch(() => {});
+    }
+    const nextMuted = toggleMasterSoundtrackMute();
     setIsMuted(nextMuted);
   };
 
@@ -80,6 +145,13 @@ export default function CinematicIntro({ onComplete }) {
     playMicroTap();
     handleFinish();
   };
+
+  // Beat state calculations
+  const isClimaxReached = currentTime >= CUES.CLIMAX;
+  const isRiser = currentTime >= CUES.RISER && !isClimaxReached;
+  const showYear = currentTime >= CUES.YEAR;
+  const showTagline = currentTime >= CUES.TAGLINE;
+  const showDetails = currentTime >= CUES.DETAILS;
 
   return (
     <motion.div
@@ -100,13 +172,27 @@ export default function CinematicIntro({ onComplete }) {
       <header className="intro-control-hud">
         <button
           type="button"
-          className={`intro-hud-btn sound-toggle ${!isMuted ? 'active' : ''}`}
+          className={`intro-hud-btn sound-toggle ${!isMuted ? 'active' : ''} ${audioBlocked ? 'needs-unlock' : ''}`}
           onClick={handleToggleMute}
-          aria-label={isMuted ? 'Unmute chime audio' : 'Mute chime audio'}
+          aria-label={isMuted ? 'Unmute soundtrack' : 'Mute soundtrack'}
           title="Toggle audio (Press M)"
         >
-          {isMuted ? <VolumeX size={13} className="hud-icon" /> : <Volume2 size={13} className="hud-icon" />}
-          <span>{isMuted ? 'MUTED' : 'AUDIO ON'}</span>
+          {audioBlocked ? (
+            <>
+              <Play size={13} className="hud-icon pulse-gold" />
+              <span>PLAY SONG</span>
+            </>
+          ) : isMuted ? (
+            <>
+              <VolumeX size={13} className="hud-icon" />
+              <span>MUTED</span>
+            </>
+          ) : (
+            <>
+              <Volume2 size={13} className="hud-icon" />
+              <span>AUDIO ON</span>
+            </>
+          )}
         </button>
 
         <button
@@ -144,21 +230,16 @@ export default function CinematicIntro({ onComplete }) {
                 </linearGradient>
               </defs>
 
-              {/* Outer Radiance Ring with Beaded Markers */}
               <circle cx="50" cy="50" r="47" stroke="url(#crestGoldGrad)" strokeWidth="1" strokeDasharray="3 4" opacity="0.65" />
               <circle cx="50" cy="50" r="44" stroke="url(#crestGoldGrad)" strokeWidth="1.4" opacity="0.9" />
 
-              {/* Inner Shield / Crest Motif */}
               <polygon points="50,14 80,26 80,56 50,82 20,56 20,26" fill="url(#crestShieldGrad)" stroke="url(#crestGoldGrad)" strokeWidth="1.2" />
 
-              {/* Open Book of Knowledge and Flame */}
               <path d="M 50 34 C 43 32 32 34 30 42 C 30 52 42 50 50 53 C 58 50 70 52 70 42 C 68 34 57 32 50 34 Z" fill="none" stroke="url(#crestGoldGrad)" strokeWidth="1.4" />
               <line x1="50" y1="34" x2="50" y2="53" stroke="url(#crestGoldGrad)" strokeWidth="1.2" />
 
-              {/* Flame of Wisdom above Book */}
               <path d="M 50 24 C 52 27 54 29 52 32 C 50 34 48 34 48 32 C 48 29 50 27 50 24 Z" fill="#FDE047" stroke="url(#crestGoldGrad)" strokeWidth="0.8" />
 
-              {/* Academic Year Stars */}
               <circle cx="38" cy="66" r="1.5" fill="#FCE7A2" />
               <circle cx="50" cy="71" r="2" fill="#FCE7A2" />
               <circle cx="62" cy="66" r="1.5" fill="#FCE7A2" />
@@ -177,20 +258,40 @@ export default function CinematicIntro({ onComplete }) {
           </p>
 
           <p className="overture-formal-greeting">
-            Cordially Inviting Respected Faculty, Dignitaries &amp; MBA Scholars
+            CORDIALLY INVITING RESPECTED FACULTY, DIGNITARIES &amp; MBA SCHOLARS
           </p>
 
-          {/* Grand Master Event Title */}
-          <h1 className="overture-grand-title">
-            PRARAMBH <span className="overture-gold-year">’26</span>
-          </h1>
+          {/* Master Title Stage with Smooth Beat Synchronization */}
+          <div className="overture-title-stage" aria-label="PRARAMBH '26">
+            {isClimaxReached ? (
+              <h1 className="overture-grand-title climax-drop">
+                PRARAMBH {showYear && <span className="overture-gold-year">’26</span>}
+              </h1>
+            ) : (
+              <div className={`overture-letter-rack ${isRiser ? 'is-riser' : ''}`}>
+                {LETTER_BEATS.map((item, index) => {
+                  const isHit = currentTime >= item.time;
+                  const isRecentHit = isHit && (currentTime - item.time < 0.45);
+                  return (
+                    <span
+                      key={index}
+                      className={`overture-beat-letter ${isHit ? 'hit' : ''} ${isRecentHit ? 'just-hit' : ''}`}
+                    >
+                      {item.char}
+                    </span>
+                  );
+                })}
+              </div>
+            )}
+          </div>
 
-          <p className="overture-grand-tagline">
+          {/* Thematic Tagline */}
+          <p className={`overture-grand-tagline ${showTagline ? 'revealed' : 'waiting'}`}>
             Ek Nayi Kahani, Ek Naya Junoon
           </p>
 
-          {/* Logistics & Dignitary Honor Ribbon */}
-          <div className="overture-brief-ribbon">
+          {/* Logistics Ribbon */}
+          <div className={`overture-brief-ribbon ${showDetails ? 'revealed' : 'waiting'}`}>
             <div className="brief-item">
               <span className="brief-label">DATE</span>
               <strong className="brief-val">Thursday, 29 Oct 2026</strong>
@@ -238,6 +339,14 @@ export default function CinematicIntro({ onComplete }) {
           <p className="overture-auto-hint">
             Advancing smoothly into celebration · Press Space or Enter to open immediately
           </p>
+
+          {/* Designed & Developed by : Chandan Mahapatra , S Akash Dora */}
+          <div className="overture-credits-bar">
+            <span className="credits-label">Designed &amp; Developed by :</span>
+            <strong className="credits-names">Chandan Mahapatra</strong>
+            <span className="credits-sep">,</span>
+            <strong className="credits-names">S Akash Dora</strong>
+          </div>
         </motion.div>
       </main>
     </motion.div>

@@ -387,14 +387,14 @@ export function playSkipTransition() {
 }
 
 // ----------------------------------------------------------------------------
-// 8. MASTER INTRO SOUNDTRACK (Kalki 2898 AD Bujji Theme - 14.01s)
+// 8. MASTER INTRO SOUNDTRACK (PRARAMBH Official Theme - 9.74s)
 // ----------------------------------------------------------------------------
 let masterIntroAudio = null;
 
 export function getMasterIntroAudio() {
   if (typeof window === 'undefined') return null;
   if (!masterIntroAudio) {
-    masterIntroAudio = getAudio('/audio/intro_sound.mp3');
+    masterIntroAudio = getAudio('/audio/introsongs.mp3');
   }
   return masterIntroAudio;
 }
